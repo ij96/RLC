@@ -1,13 +1,12 @@
 function [t,x,y] = RK(method,dx,dy,xi,yi,ti,tf,h)
     % Runge-Kutta method for solving the 2nd order ODE y'' = f(t,x,y)
-    % This is achieved by writing the 2nd order ODE as two coupled 1st
-    % order ODEs:
+    % This is achieved by writing the 2nd order ODE as two coupled 1st order ODEs:
     %   dx = y = x'
     %   dy = y' = x''
     % then solving both together using a specified RK method.
     %
     % Parameters:
-    %   method: name of the RK method to be used
+    %   method: name of the RK method to be used (case-insensitive)
     %   dx, dy: coupled 1st order ODEs equivalent of the 2nd order ODE y'' = f(t,x,y)
     %       dx = y = x'
     %       dy = y' = x''
@@ -15,7 +14,7 @@ function [t,x,y] = RK(method,dx,dy,xi,yi,ti,tf,h)
     %   yi: initial value of y
     %   ti: initial value of t
     %   tf: final value of t
-    %   h: time step size
+    %   h: time interval size
     
     % Generate the necessary matrices:
     %   s: number of stages = order of the method
