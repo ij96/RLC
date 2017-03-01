@@ -1,4 +1,4 @@
-function RLC(Vin_str)
+function RLC(Vin_str,method)
 % Plot RLC series circuit response by using numerical method (Runge-Kutta 3/8)
 %
 % RLC system function:
@@ -51,21 +51,7 @@ else
 end
 
 % applying numerical method
-N = round((tf-ti)/h);       % total number of steps
-t = zeros(1,N);             % [1 x N] matrix of 0's
-q = zeros(1,N);
-i = zeros(1,N);
-
-% set initial conditions
-t(1) = ti;
-q(1) = qi;
-i(1) = ii;
-
-% iterate through N step and get the [i+1]th value each iteration.
-for j = 1:N-1
-    [q(j+1),i(j+1)] = RK4_38(dq,di,t(j),q(j),i(j),h);
-    t(j+1) = t(j) + h;
-end
+[t,q,i] = RK(method,dq,di,qi,ii,ti,tf,h);
 
 % plot graph
 V_C = (1/C)*q;
