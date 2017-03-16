@@ -12,7 +12,7 @@ Plotting RLC series circuit response using [Runge-Kutta methods](https://en.wiki
 
 ## Usage
 
-###`RLC(Vin_str,method)`
+`RLC(Vin_str,method)`
 
 Parameters
 - `Vin_str`: string type, Vin(t) as a function of `t`.
